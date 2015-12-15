@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ShopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryName" Type="nvarchar" MaxLength="500" />
+    <Property Name="CategoryDescription" Type="nvarchar" MaxLength="1000" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="LastUpdDate" Type="datetime" />
+    <Property Name="IsDelete" Type="bit" />
+  </EntityType>
+  <EntityType Name="ImageProduct">
+    <Key>
+      <PropertyRef Name="ImageID" />
+    </Key>
+    <Property Name="ImageID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PathImage" Type="nvarchar" MaxLength="50" />
+    <Property Name="ImageName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProductID" Type="bigint" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="LastUpdDate" Type="datetime" />
+    <Property Name="IsDelete" Type="bit" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderDate" Type="datetime" />
+    <Property Name="Address" Type="nvarchar" MaxLength="500" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="50" />
+    <Property Name="TotalCost" Type="float" />
+    <Property Name="Status" Type="int" />
+    <Property Name="Note" Type="nvarchar" MaxLength="500" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="LastUpdDate" Type="datetime" />
+    <Property Name="IsDelete" Type="bit" />
+  </EntityType>
+  <EntityType Name="OrderDetail">
+    <Key>
+      <PropertyRef Name="OrderDetailID" />
+    </Key>
+    <Property Name="OrderDetailID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderID" Type="bigint" />
+    <Property Name="ProductID" Type="bigint" />
+    <Property Name="Quantity" Type="bigint" />
+    <Property Name="Price" Type="float" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="LastUpdDate" Type="datetime" />
+    <Property Name="IsDelete" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="500" />
+    <Property Name="ProductDescription" Type="nvarchar" MaxLength="2000" />
+    <Property Name="CategoryID" Type="bigint" />
+    <Property Name="Price" Type="float" />
+    <Property Name="Quantity" Type="bigint" />
+    <Property Name="PathImage" Type="nvarchar" MaxLength="50" />
+    <Property Name="ImageName" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsHot" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="LastUpdDate" Type="datetime" />
+    <Property Name="IsDelete" Type="bit" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="LastUpdDate" Type="datetime" />
+    <Property Name="IsAdmin" Type="bit" />
+    <Property Name="IsDelete" Type="bit" />
+  </EntityType>
+  <EntityContainer Name="ShopModelStoreContainer">
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ImageProduct" EntityType="Self.ImageProduct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderDetail" EntityType="Self.OrderDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

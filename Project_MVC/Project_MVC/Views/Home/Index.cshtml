@@ -1,0 +1,76 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<table class="table" id="tb1">
+    <thead>
+        <tr>
+            <th>CategoryId</th>
+            <th>CategoryName</th>
+            <th>Description</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+       
+    </tbody>
+</table>
+@section scripts {
+    <script>
+        $(function () {
+            load();
+            
+        });
+        
+        
+        function xoa(id) {
+            var idmodel = {
+                '':id
+            };
+            //alert(id);
+            $.ajax({
+                url: "http://localhost/API_Shop/category/delete",
+                type: 'POST',
+                crossDomain: true, // enable this
+                dataType: 'json',
+                data:{ '': id },
+                success: function (data) {
+                    load();
+                },
+                error: function (jqXHR, textStatus) {
+                    alert("Request failed: " + textStatus);
+                }
+
+            });
+        };
+
+        function load() {
+            $.ajax({
+                url: "http://localhost/API_Shop/category/get-all.xml",
+                type: 'GET',
+                crossDomain: true, // enable this
+                dataType: 'json',
+                success: function (data) {
+
+                    var tr = "";
+                    $.each(data, function (index, data) {
+                        console.log('index', data)
+                        tr += '<tr>';
+                        tr +='<td>' + data.CategoryID + '</td>';
+                        tr += '<td>' + data.CategoryName + '</td>';
+                        tr += '<td>' + data.CategoryDescription + '</td>';
+                        tr += '<td><button class="btn btn-danger btn-xs btndelete" data-id="' + data.CategoryID + '" onclick="xoa(' + data.CategoryID + ');">Xóa</button></td>';
+                        tr +=   '</tr>';
+                    })
+                    //console.log(tr);
+                    $("#tb1").find("tr:not(:first)").remove();
+                    $("#tb1").append(tr);
+                },
+                error: function (jqXHR, textStatus) {
+                    alert("Request failed: " + textStatus);
+                }
+
+            });
+        }
+    </script>
+}

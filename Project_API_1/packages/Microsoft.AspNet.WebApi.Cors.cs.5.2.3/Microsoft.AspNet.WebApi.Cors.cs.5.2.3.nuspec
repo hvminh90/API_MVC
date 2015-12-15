@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Microsoft.AspNet.WebApi.Cors.cs</id>
+    <version>5.2.3</version>
+    <title>Microsoft ASP.NET Web API 2.2 Cross-Origin Support - české prostředky</title>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <licenseUrl>http://www.microsoft.com/web/webpi/eula/net_library_eula_CSY.htm</licenseUrl>
+    <projectUrl>http://www.asp.net/web-api</projectUrl>
+    <iconUrl>http://go.microsoft.com/fwlink/?LinkID=288859</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Balíček obsahuje česká satelitní sestavení pro ASP.NET Web API CORS.</description>
+    <summary>České prostředky pro balíček Microsoft.AspNet.WebApi.Cors</summary>
+    <releaseNotes>Please visit http://go.microsoft.com/fwlink/?LinkID=403010 to view the release notes.</releaseNotes>
+    <copyright>© Microsoft Corporation. Všechna práva vyhrazena.</copyright>
+    <language>cs</language>
+    <tags>Microsoft AspNet WebApi AspNetWebApi Cors Cross Origin</tags>
+    <dependencies>
+      <dependency id="Microsoft.AspNet.WebApi.Cors" version="[5.2.3]" />
+    </dependencies>
+  </metadata>
+</package>
